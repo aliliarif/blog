@@ -15,7 +15,10 @@
 	    <link href="<?php echo base_url();?>common/css/bootstrap.min.css" rel="stylesheet">
 
 	    <!-- Custom CSS -->
-	    <link href="<?php echo base_url();?>common/css/clean-blog.min.css" rel="stylesheet">
+	    <link href="<?php echo base_url();?>common/css/clean-blog.css" rel="stylesheet">
+
+	    <!-- Advanced textarea WYSIHTML -->
+	    <link href="<?php echo base_url();?>common/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet">
 
 	    <!-- Custom Fonts -->
 	    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">

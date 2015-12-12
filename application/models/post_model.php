@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends CI_Model {
+class Post_model extends CI_Model {
 
 	public function getPosts()
 	{
@@ -11,7 +11,7 @@ class Post extends CI_Model {
 				description,
 				username
 			from 
-				posts
+				post
 		");
 		return $posts_query->result();
 	}
