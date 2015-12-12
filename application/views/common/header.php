@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <?php if(!strpos(current_url(), "index.php/create_post")){ ?> 
+                <?php if(!strpos(current_url(), "create_post")){ ?> 
                     <a class="navbar-brand" href="index.html" style="color:black;">Back</a>
                 <?php } ?>
             </div>
@@ -45,7 +45,7 @@
 
     <!-- Page Header -->
     <!-- Dont show page header when we create new post -->
-    <?php if(!strpos(current_url(), "index.php/create_post")){ ?> 
+    <?php if(!strpos(current_url(), "create_post")){ ?> 
         <header class="intro-header" style="background-image: url('<?php echo base_url();?>common/img/home-bg.jpg')">
             <div class="container">
                 <div class="row">

@@ -62,6 +62,14 @@ function user_login($email,$password) {
 
 // ============== register modal ==============
 
+$("#register_modal").on('shown.bs.modal', function(event) {
+	$("#name_register").focus();
+});
+// on hidde modal, clear inputs
+$("#login_modal").on('hidde.bs.modal', function(event) {
+	$("#email_login").val('');
+	$("#password_login").val('');
+});
 
 // ==============
 
