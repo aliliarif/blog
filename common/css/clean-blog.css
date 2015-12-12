@@ -344,9 +344,11 @@ form .row:first-child .floating-label-form-group {
   border: 1px solid #0085a1;
   color: white;
 }
+.btnCustom,
 .pager {
   margin: 20px 0 0;
 }
+.btnCustom,
 .pager li > a,
 .pager li > span {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -358,6 +360,7 @@ form .row:first-child .floating-label-form-group {
   background-color: white;
   border-radius: 0;
 }
+.btnCustom,
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;

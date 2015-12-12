@@ -2,7 +2,7 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <a href="index.php/create_post" class="btnCustom btnCustom-default">New Post</a>
+            <a href="index.php/create_post_controller" class="btnCustom btnCustom-default">New Post</a>
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <?php foreach ($posts as $post) { ?>
                     <div class="post-preview">

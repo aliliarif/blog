@@ -11,11 +11,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Back</a>
-                    </li>
-                </ul>
+                <?php if(!strpos(current_url(), "index.php/create_post")){ ?> 
+                    <a class="navbar-brand" href="index.html" style="color:black;">Back</a>
+                <?php } ?>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
