@@ -20,8 +20,9 @@ class Create_post_controller extends CI_Controller {
 
 		// function is called from AJAX in cp_scripts,
 		// post_title and post_desc are send with POST method from AJAX
-		$post_title = $this->input->get('post_title');
-		$post_desc = $this->input->get('post_desc');
+		$post_title = $this->input->post('post_title');
+		$post_desc = $this->input->post('post_desc');
+
 
 		$this->load->model('post_model');
 		$this->post_model->insPost($post_title,$post_desc);

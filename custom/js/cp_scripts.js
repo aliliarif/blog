@@ -21,17 +21,19 @@ $("#publish_post").on('click', function(event) {
 function insert_post($post_title,$post_desc){
 	$.ajax({
 		url: 'create_post_controller/insPost',
-		type: 'GET',
+		type: 'POST',
 		data: {
 			post_title : $post_title,
 			post_desc : $post_desc
 		},
 	})
 	.done(function() {
-		alert("Post is successfuly published.");
+		alert("Post is successfuly published."); // change this
+		location.href = "/blog"; // load index page
 	})
-	.fail(function() {
+	.fail(function(data, textStatus, jqXHR) {
 		// debugg 
-		console.log("error in insert_post func...");
+		console.log("error in insert_post func... ");
+		console.log(jqXHR.status);
 	})
 }

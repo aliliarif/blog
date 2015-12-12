@@ -17,7 +17,24 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- if user is logged in, dont show login and register links -->
+                    <!-- instead show name of user -->
+                    <?php if(!$this->session->userdata('username')){ ?>
+                        <li>
+                            <a href="index.html" data-toggle="modal" data-target="#login_modal">Login</a>
+                        </li>
+                        <li>
+                            <a href="about.html" data-toggle="modal" data-target="#register_modal">Register</a>
+                        </li>
+                    <?php }else{ ?>
+                        <li>
+                            <a href="#"><?php echo $this->session->userdata('username'); ?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->

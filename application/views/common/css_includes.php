@@ -20,6 +20,9 @@
 	    <!-- Advanced textarea WYSIHTML -->
 	    <link href="<?php echo base_url();?>common/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet">
 
+	    <!-- Custom CSS -->
+	    <link href="<?php echo base_url();?>custom/css/custom_css.css" rel="stylesheet">
+
 	    <!-- Custom Fonts -->
 	    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
