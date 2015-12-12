@@ -21,7 +21,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Login</button>
+                <button type="button" id="login_btn" name="login_btn" class="btn btn-primary">Login</button>
             </div>
 
         </div>

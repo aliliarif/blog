@@ -23,10 +23,10 @@
                     <!-- instead show name of user -->
                     <?php if(!$this->session->userdata('username')){ ?>
                         <li>
-                            <a href="index.html" data-toggle="modal" data-target="#login_modal">Login</a>
+                            <a href="" data-toggle="modal" data-target="#login_modal">Login</a>
                         </li>
                         <li>
-                            <a href="about.html" data-toggle="modal" data-target="#register_modal">Register</a>
+                            <a href="" data-toggle="modal" data-target="#register_modal">Register</a>
                         </li>
                     <?php }else{ ?>
                         <li>

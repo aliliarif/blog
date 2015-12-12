@@ -14,7 +14,10 @@
 	    <script src="<?php echo base_url();?>custom/js/scripts.js"></script>
 
 	    <!-- Create Post Page Custom Scripts -->
-	    <script src="<?php echo base_url();?>custom/js/cp_scripts.js"></script>
+	    <script src="<?php echo base_url();?>custom/js/cp_script.js"></script>
+
+	    <!-- Users Custom Scripts (login and register) -->
+	    <script src="<?php echo base_url();?>custom/js/user_script.js"></script>
 
 	</body>
 </html>
