@@ -8,9 +8,18 @@ class User_model extends CI_Model {
 		# code...
 	}
 
-	public function selUser($name,$password)
+	public function selUser($email,$password)
 	{
-		# code...
+		$selUser_query = $this->db->query("
+			select
+				name
+			from
+				user
+			where
+				email = '$email'
+				and password = '$password'
+		");
+		return $selUser_query->row()->name;
 	}
 	
 

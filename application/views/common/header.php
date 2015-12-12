@@ -20,8 +20,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- if user is logged in, dont show login and register links -->
-                    <!-- instead show name of user -->
-                    <?php if(!$this->session->userdata('username')){ ?>
+                    <!-- instead show name of user and logout button -->
+                    <?php if(!$this->session->userdata('name')){ ?>
                         <li>
                             <a href="" data-toggle="modal" data-target="#login_modal">Login</a>
                         </li>
@@ -30,7 +30,10 @@
                         </li>
                     <?php }else{ ?>
                         <li>
-                            <a href="#"><?php echo $this->session->userdata('username'); ?></a>
+                            <a href="#"><?php echo $this->session->userdata('name'); ?></a>
+                        </li>
+                        <li>
+                            <a href="index.php/user_controller/logout" title="Log out"><i class="glyphicon glyphicon-off"></i></a>
                         </li>
                     <?php } ?>
                 </ul>

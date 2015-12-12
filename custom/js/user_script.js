@@ -1,6 +1,13 @@
+// ============== Login modal ==============
+
 // focus on first input when login modal shows
 $("#login_modal").on('shown.bs.modal', function(event) {
 	$("#email_login").focus();
+});
+// on hidde modal, clear inputs
+$("#login_modal").on('hidde.bs.modal', function(event) {
+	$("#email_login").val('');
+	$("#password_login").val('');
 });
 
 $("#login_modal").on('click', '#login_btn', function(event) {
@@ -8,13 +15,16 @@ $("#login_modal").on('click', '#login_btn', function(event) {
 	var $password = $("#password_login").val();
 	// front-end input validation
 	if ($email == '' || $email === undefined){
-		alert("Email cant't be empty!");
+		$("#error_login").empty(); // clear prev error 
+		$("#error_login").append("&middot; Please enter your email.");
 		return false;
 	}else if($password == '' || $password === undefined){
-		alert("Password can't be empty!");
+		$("#error_login").empty();
+		$("#error_login").append("&middot; Please enter your password.");
 		return false;
 	}else if(!isEmail($email)){
-		alert("Email is not in valid format!");
+		$("#error_login").empty();
+		$("#error_login").append("&middot; Invalid email format.");
 		return false;
 	}
 
@@ -32,9 +42,15 @@ function user_login($email,$password) {
 			password : $password
 		},
 	})
-	.done(function(data) {
-		alert(data);
-		console.log("success");
+	.done(function(result) {
+
+		if (result == 1){ // user/password combination exists
+			$("#login_modal").modal("hide");
+			location.reload(); // reload page
+		}else{ // user/password combination exists doesnt exists, show error in modal
+			$("#error_login").empty();
+			$("#error_login").append("&middot; The email and password you entered don't match.");
+		}
 	})
 	.fail(function(data, textStatus, jqXHR) {
 		// debugg 
@@ -42,4 +58,24 @@ function user_login($email,$password) {
 		console.log(jqXHR.status);
 	})
 }
+// ==============
 
+// ============== register modal ==============
+
+
+// ==============
+
+
+// ============== no permission to add posts modal ==============
+
+$("#cantPost_modal").on('click', '#login_btn_np', function(event) {
+	$("#cantPost_modal").modal("hide");
+	$("#login_modal").modal("show");
+});
+
+$("#cantPost_modal").on('click', '#register_btn_np', function(event) {
+	$("#cantPost_modal").modal("hide");
+	$("#register_modal").modal("show");
+});
+
+// ==============

@@ -1,7 +1,13 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <a href="index.php/create_post_controller" class="btnCustom btnCustom-default">New Post</a>
+        <?php if($this->session->userdata('name')){?>
+            <!-- logged in user - can create new post -->
+            <a href="index.php/create_post_controller" class="btnCustom btnCustom-default">New Post</a>
+        <?php }else{?>
+            <!-- user is not logged in -->
+            <a href="" class="btnCustom btnCustom-default" data-toggle="modal" data-target="#cantPost_modal">New Post</a>
+        <?php } ?>
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <?php foreach ($posts as $post) { ?>
                 <div class="post-preview">
