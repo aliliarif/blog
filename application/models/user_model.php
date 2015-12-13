@@ -3,9 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
 
-	public function insUser($name,$password)
+	public function insUser($name,$email,$password)
 	{
-		# code...
+		$this->db->query("
+			insert into user
+			(
+				name,
+				email,
+				password
+			)
+			values
+			(
+				'$name',
+				'$email',
+				'$password'
+			)
+		");
 	}
 
 	public function selUser($email,$password)

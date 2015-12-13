@@ -13,7 +13,7 @@ $("#login_modal").on('hidde.bs.modal', function(event) {
 $("#login_modal").on('click', '#login_btn', function(event) {
 	var $email = $("#email_login").val();
 	var $password = $("#password_login").val();
-	// front-end input validation
+	// === input validation
 	if ($email == '' || $email === undefined){
 		$("#error_login").empty(); // clear prev error 
 		$("#error_login").append("&middot; Please enter your email.");
@@ -28,7 +28,7 @@ $("#login_modal").on('click', '#login_btn', function(event) {
 		return false;
 	}
 
-	// if form is valid
+	// form is valid
 	user_login($email,$password);
 });
 
@@ -65,11 +65,51 @@ function user_login($email,$password) {
 $("#register_modal").on('shown.bs.modal', function(event) {
 	$("#name_register").focus();
 });
-// on hidde modal, clear inputs
-$("#login_modal").on('hidde.bs.modal', function(event) {
-	$("#email_login").val('');
-	$("#password_login").val('');
-});
+
+
+// $("#register_modal").on('click', '#register_btn', function(event) {
+// 	var $name = $("#name_register").val();
+// 	var $email = $("#email_register").val();
+// 	var $password = $("#password_register").val();
+// 	var $password_conf = $("#password_register_conf").val();
+
+// 	// === input validation
+// 	if ($name == '' || $name === undefined){
+// 		$("#error_register").empty(); // clear prev error 
+// 		$("#error_register").append("&middot; Please enter your first name.");
+// 		$("#name_register").focus();
+// 		return false;
+// 	}else if ($email == '' || $email === undefined){
+// 		$("#error_register").empty(); // clear prev error 
+// 		$("#error_register").append("&middot; Please enter your email.");
+// 		$("#email_register").focus();
+// 		return false;
+// 	}else if($password == '' || $password === undefined){
+// 		$("#error_register").empty();
+// 		$("#error_register").append("&middot; Please enter your password.");
+// 		$("#password_register").focus();
+// 		return false;
+// 	}else if($password_conf == '' || $password_conf === undefined){
+// 		$("#error_register").empty();
+// 		$("#error_register").append("&middot; Please enter your password.");
+// 		$("#password_register_conf").focus();
+// 		return false;
+// 	}else if(!isEmail($email)){
+// 		$("#error_register").empty();
+// 		$("#error_register").append("&middot; Invalid email format.");
+// 		$("#email_register").focus();
+// 		return false;
+// 	}else if($password != $password_conf){
+// 		$("#error_register").empty();
+// 		$("#error_register").append("&middot; Passwords do not match.");
+// 		$("#password_register").focus();
+// 		return false;
+// 	}
+
+// 	// form is valid
+// 	// wont make ajax function, ill handle post with PHP this time.
+
+// });
 
 // ==============
 
