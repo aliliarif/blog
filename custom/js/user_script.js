@@ -33,10 +33,11 @@ $("#login_modal").on('click', '#login_btn', function(event) {
 });
 
 // check if combination of user and password exists in DB 
+// change to post
 function user_login($email,$password) {
 	$.ajax({
 		url: 'index.php/user_controller/selUser',
-		type: 'POST',
+		type: 'GET',
 		data: {
 			email : $email,
 			password : $password

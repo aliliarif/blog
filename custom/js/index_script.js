@@ -1,3 +1,21 @@
+// ============== show full post modal
+
+$(".full_post").on('click', function(event) {
+	var $full_post = $(this).data('full'); 
+	var $title = $(this).data('title'); 
+	var $username = $(this).data('username'); 
+	var $date = $(this).data('date');
+	$("#post_info_mdl").empty();
+	$("#full_post_mdl").empty();
+	$("#post_info_mdl").append($title + ', posted by: ' + $username + ' on ' + $date);
+	$("#full_post_mdl").append($full_post);
+	$("#full_post_modal").modal('show');	
+});
+
+
+
+// ==============
+
 // ============== Featured posts 
 
 // on page load, display featured post

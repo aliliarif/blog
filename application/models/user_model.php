@@ -21,18 +21,19 @@ class User_model extends CI_Model {
 		");
 	}
 
-	public function selUser($email,$password)
+	public function selUser($email)
 	{
 		$selUser_query = $this->db->query("
 			select
-				name
+				name,
+				password
 			from
 				user
 			where
 				email = '$email'
-				and password = '$password'
+			limit 1
 		");
-		return $selUser_query->row()->name;
+		return $selUser_query->result();
 	}
 	
 

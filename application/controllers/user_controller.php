@@ -43,8 +43,18 @@ class User_controller extends CI_Controller {
 			$this->load->view('index_modals_view.php',$data); // load bootstrap modals 
 		}else{
 			$this->load->model('user_model');
-			$this->user_model->insUser($name_register,$email_register,$password_register);
+			// hash pass
+			$cost = 10;
+			// Create a random salt
+			$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+			// Prefix information using Blowfish algorithm.
+			$salt = sprintf("$2a$%02d$", $cost) . $salt;
 
+			// Hash the password with the salt
+			$hashed_pass = crypt($password_register, $salt);
+			
+
+			$this->user_model->insUser($name_register,$email_register,$hashed_pass);
 			$this->session->set_userdata('name',$name_register);
 			redirect('/');
 		}	
@@ -53,19 +63,28 @@ class User_controller extends CI_Controller {
 	// function to check if user exists in DB
 	public function selUser()
 	{
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
+		$email = $this->input->get('email');
+		$password = $this->input->get('password');
 
 		// check if user exists in DB
 		$this->load->model('user_model');
-		$name = $this->user_model->selUser($email,$password);
+		$auth = $this->user_model->selUser($email);
+		
+		foreach ($auth as $auth) {
+			$name = $auth->name;
+			$hashed_pass = $auth->password;
+		}
+		
+		if ($hashed_pass != ''){
+			if($this->hash_equals($hashed_pass, crypt($password, $hashed_pass))){
+				// set session for the user
+				$this->session->set_userdata('name',$name);
 
-		if($name != ''){ // user exists
-			// set session for the user
-			$this->session->set_userdata('name',$name);
-
-			$this->output->set_output("1");
-		}else{ // user doesn't exist
+				$this->output->set_output("1");
+			}else{
+				$this->output->set_output("0");
+			}
+		}else{
 			$this->output->set_output("0");
 		}
 	}
@@ -75,4 +94,23 @@ class User_controller extends CI_Controller {
 		$this->session->sess_destroy('name'); // destroy session
 		redirect('/');
 	}	
+
+	// if php < 5.6
+   	public function hash_equals($str1, $str2)
+    {
+        if(strlen($str1) != strlen($str2))
+        {
+            return false;
+        }
+        else
+        {
+            $res = $str1 ^ $str2;
+            $ret = 0;
+            for($i = strlen($res) - 1; $i >= 0; $i--)
+            {
+                $ret |= ord($res[$i]);
+            }
+            return !$ret;
+        }
+    }
 }

@@ -99,6 +99,23 @@
 </div>
 <!-- Register Modal End -->
 
+
+<!-- full post modal -->
+<div class="modal fade" id="full_post_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 id="post_info_mdl" class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div id="full_post_mdl" class="modal-body" style="max-height: 420px;overflow-y: auto;">
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!-- full post modal end -->
+
 <!-- open modal if there is error in registration form -->
 <?php if(isset($error_registration) && $error_registration == 1){ ?>
     <script type="text/javascript">
