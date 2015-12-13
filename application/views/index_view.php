@@ -19,16 +19,28 @@
                             <?php echo $post->description; ?>
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#"><?php echo $post->username;?></a> on September 24, 2014</p>
+                    <p class="post-meta" style="margin-top:-30px;">Posted by <?php echo $post->username . " on " . $post->date;?></p>
                 </div>
-                <hr>
+                <hr style="margin-top:-30px;">
             <?php } ?>
             <!-- Pager -->
-            <ul class="pager">
-                <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
-                </li>
-            </ul>
+            <div style="text-align: center;">
+                <ul class="pagination pagination-lg" >
+                    <!-- make first page active when there is no selected page -->
+                    <?php for ($i=1; $i <= $pages; $i++) { ?>
+                        <li 
+                            <?php 
+                            if($selected_page == $i) { ?> 
+                                class="active" 
+                            <?php }else if($selected_page == '' && $i == 1){ ?> 
+                                class="active" 
+                            <?php } ?>
+                        >
+                            <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

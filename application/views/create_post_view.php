@@ -1,4 +1,4 @@
-   <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="margin-bottom:30px;">
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="margin-bottom:30px;">
     <button class="backBtn btnCustom btnCustom-default">&larr; Back</button>
     <button id="publish_post" name="publish_post" class="btnCustom pull-right">Publish</button>
 </div>

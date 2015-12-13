@@ -16,16 +16,15 @@ class Create_post_controller extends CI_Controller {
 
 	public function insPost()
 	{
-		// --- + USERNAME HERE
-
 		// function is called from AJAX in cp_scripts,
 		// post_title and post_desc are send with POST method from AJAX
 		$post_title = $this->input->post('post_title');
 		$post_desc = $this->input->post('post_desc');
+		$username = $this->session->userdata('name');
 
 
 		$this->load->model('post_model');
-		$this->post_model->insPost($post_title,$post_desc);
+		$this->post_model->insPost($post_title,$post_desc,$username);
 	}
 
 }
