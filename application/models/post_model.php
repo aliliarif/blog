@@ -13,8 +13,7 @@ class Post_model extends CI_Model {
 				username
 			from 
 				post
-			order 
-				by date desc
+			order by date desc
 			limit $page,5
 		");
 		return $posts_query->result();
@@ -57,6 +56,27 @@ class Post_model extends CI_Model {
 		} catch (Exception $e) {
 			return false;
 		}
+	}
+
+	public function getRandPost()
+	{
+		$rand_post_query = $this->db->query("
+			select 
+				title,
+				description,
+				date,
+				username 
+			from 
+				post
+			order by rand()
+			limit 1
+		");
+		// return result in JSON format
+		foreach($rand_post_query->result() as $fieldname => $fieldvalue) {
+    		$data[$fieldname] = $fieldvalue;
+    	}
+    	$this->output->set_content_type('application/json')->
+    		set_output(json_encode($data));
 	}
 
 }

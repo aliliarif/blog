@@ -53,7 +53,6 @@
                         <div class="site-heading">
                             <h1>Arif's Blog</h1>
                             <hr class="small">
-                            
                         </div>
                     </div>
                 </div>

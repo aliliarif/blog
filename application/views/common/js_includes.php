@@ -13,6 +13,9 @@
 	    <!-- Global custom Scripts -->
 	    <script src="<?php echo base_url();?>custom/js/scripts.js"></script>
 
+	    <!-- Index page Scripts -->
+	    <script src="<?php echo base_url();?>custom/js/index_script.js"></script>
+
 	    <!-- Create Post Page Custom Scripts -->
 	    <script src="<?php echo base_url();?>custom/js/cp_script.js"></script>
 

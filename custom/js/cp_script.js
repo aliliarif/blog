@@ -20,7 +20,7 @@ $("#publish_post").on('click', function(event) {
 // function to insert post into database
 function insert_post($post_title,$post_desc){
 	$.ajax({
-		url: 'create_post_controller/insPost',
+		url: 'post_controller/insPost',
 		type: 'POST',
 		data: {
 			post_title : $post_title,

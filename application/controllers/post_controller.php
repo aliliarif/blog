@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Create_post_controller extends CI_Controller {
+class Post_controller extends CI_Controller {
 
 	public function index()
 	{
@@ -25,6 +25,14 @@ class Create_post_controller extends CI_Controller {
 
 		$this->load->model('post_model');
 		$this->post_model->insPost($post_title,$post_desc,$username);
+	}
+
+	public function getRandPost()
+	{
+		$this->load->model('post_model');
+		$post = $this->post_model->getRandPost();
+
+		//$this->output->set_output($post);
 	}
 
 }
