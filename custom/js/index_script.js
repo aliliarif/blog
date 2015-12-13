@@ -1,6 +1,6 @@
 // ============== show full post modal
 
-$(".full_post").on('click', function(event) {
+$(document).on('click', '.full_post', function(event) {
 	var $full_post = $(this).data('full'); 
 	var $title = $(this).data('title'); 
 	var $username = $(this).data('username'); 
@@ -11,8 +11,6 @@ $(".full_post").on('click', function(event) {
 	$("#full_post_mdl").append($full_post);
 	$("#full_post_modal").modal('show');	
 });
-
-
 
 // ==============
 
@@ -51,12 +49,12 @@ function setRandPost($title,$description,$date,$username){
 	$("#featured_post").append(
 		'<div class="col-md-3 " style="word-wrap: break-word; margin-left:-100px;">'
                + '<div class="post-preview">'
-                    + '<a href="#">'
+                    + '<a href="#" class="full_post" data-full="'+$description+'" data-title="'+$title+'" data-username="'+$username+'" data-date="'+$date+'">'
                         + '<h2 class="post-title">'
                            + $title + '<i style="font-size:12px;color: #0085a1;"> featured</i>'
                         + '</h2>'
                         + '<h3 class="post-subtitle">'
-                           + $description
+                           + $description.substring(0, 200)
                         + '</h3>'
                     + '</a>'
                     + '<p class="post-meta" >Posted by '+$username+' on '+$date+'</p>'

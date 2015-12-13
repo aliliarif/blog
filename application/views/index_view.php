@@ -20,6 +20,7 @@
                         data-full="<?php echo $post->description;?>" 
                         data-title="<?php echo $post->title; ?>" 
                         data-username="<?php echo $post->username;?>"
+                        data-date="<?php echo $post->date;?>"
                     >
                         <h2 id="post_title" class="post-title">
                             <?php echo $post->title; ?>

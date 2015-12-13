@@ -63,8 +63,8 @@ class User_controller extends CI_Controller {
 	// function to check if user exists in DB
 	public function selUser()
 	{
-		$email = $this->input->get('email');
-		$password = $this->input->get('password');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 
 		// check if user exists in DB
 		$this->load->model('user_model');
